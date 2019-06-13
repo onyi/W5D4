@@ -44,3 +44,15 @@ function fibonacci(n) {
   var last2 = prev_fib[prev_fib.length - 2];
   return prev_fib.concat(last1 + last2 );
 }
+
+function deepDup(arr){
+  let dubarr = [];
+  for (let i = 0; i < arr.length; i++ ){
+    if (arr[i] instanceof Array ){
+      dubarr.push(deepDup(arr[i]));
+    }else{
+      dubarr.push(arr[i]);
+    }
+  }
+  return dubarr;
+}
