@@ -33,3 +33,14 @@ function exponent2(base, exp) {
     return base * (exponent2(base, (exp - 1) / 2) ** 2);    
   }
 }
+
+function fibonacci(n) {
+  if (n === 0) return [];
+  if (n === 1) return [0];
+  if (n === 2) return [0, 1];
+
+  var prev_fib = fibonacci(n - 1);
+  var last1 = prev_fib[prev_fib.length - 1];
+  var last2 = prev_fib[prev_fib.length - 2];
+  return prev_fib.concat(last1 + last2 );
+}
