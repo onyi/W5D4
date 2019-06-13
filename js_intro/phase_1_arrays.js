@@ -20,3 +20,17 @@ Array.prototype.twoSum = function () {
   });
   return arr;
 }
+
+Array.prototype.transpose = function () {
+  let arr = [];
+  let base_arr = this;
+  
+  for (let x = 0; x < this[0].length; x++) {
+    let inner = [];
+    for (let y = 0; y < this.length; y++) {  
+      inner.push(this[y][x]);
+    }
+    arr.push(inner);
+  }
+  return arr;
+}
