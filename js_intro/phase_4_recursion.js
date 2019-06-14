@@ -78,3 +78,36 @@ function bsearch(arr, target) {
     }
   }
 }
+
+
+function mergesort(arr) {
+
+  if (arr.length <= 1) return arr; 
+
+  let index = Math.floor( arr.length / 2 );
+  let left = mergesort(arr.slice(0, index));
+  let right = mergesort(arr.slice(index, arr.length));
+
+  return mergesort_helper(left, right);
+}
+
+function mergesort_helper(left, right){
+  let tmparr = [];
+
+  // while( !(left.length === 0 || right.length === 0) ){
+  while (!(left.length === 0 || right.length === 0)) {
+    if(left[0] > right[0]){
+      tmparr.push(right.shift());
+    }else{
+      tmparr.push(left.shift());
+    }
+  }
+
+  tmparr = tmparr.concat(left);
+  tmparr = tmparr.concat(right);
+  return tmparr;
+}
+
+function subsets(arr){
+
+}
