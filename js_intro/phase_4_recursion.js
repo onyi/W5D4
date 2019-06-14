@@ -56,3 +56,25 @@ function deepDup(arr){
   }
   return dubarr;
 }
+
+function bsearch(arr, target) {
+  if (arr.length === 1) {
+    if (arr[0] === target ) {
+      return 0;
+    } else {
+      return -1;
+    }
+  }
+
+  let mid_index = Math.floor(arr.length / 2);
+  if (arr[mid_index] > target) {
+    return bsearch(arr.slice(0, mid_index), target);
+  } else {
+    let right_result = bsearch(arr.slice(mid_index, arr.length), target);
+    if (right_result !== -1 ) {
+      return mid_index + right_result;
+    } else {
+      return -1;
+    }
+  }
+}
